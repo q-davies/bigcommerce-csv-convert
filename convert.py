@@ -34,7 +34,10 @@ def convert_line(f, source_fields):
     allow_purchases = ''
     is_visible = source_fields[30]
     availability = ''
-    track_inventory = ''
+    if item_type == "PRODUCT":
+        track_inventory = "by product"
+    else:
+        track_inventory = ''
     current_stock = source_fields[23]
     category = source_fields[24].replace(",", ";").replace("/", "", 1).replace("; /", ";").replace(";/", ";")
     product_image_id = ''
